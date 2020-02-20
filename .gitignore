@@ -1,0 +1,11 @@
+.DS_Store
+*.xcuserdatad
+xcuserdata/
+
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+
+.build/
