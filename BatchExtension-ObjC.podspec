@@ -11,6 +11,6 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/BatchLabs/Batch-iOS-SDK-Extension-ObjC.git", :tag => "#{spec.version}" }
 
   spec.requires_arc = true
-  spec.source_files  = "Sources", "Sources/**/*.{h,m}"
+  spec.source_files  = "Sources", "Sources/**/*.{h,m,c}"
   spec.public_header_files = "Classes/**/*.h"
 end
