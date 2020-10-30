@@ -14,7 +14,7 @@
 
 @implementation BAEDisplayReceiptHelper
 
-- (void)processDisplayReceipt:(UNNotificationContent*)content completionHandler:(void (^)(UNNotificationContent* _Nullable result, NSError* _Nullable error))completionHandler
+- (void)processDisplayReceiptForContent:(UNNotificationContent*)content completionHandler:(void (^)(UNNotificationContent* _Nullable result, NSError* _Nullable error))completionHandler
 {
     if (content == nil)
     {
@@ -58,7 +58,7 @@
         return;
     }
     
-    [self processDisplayReceipt:request.content completionHandler:^(UNNotificationContent * _Nonnull result, NSError * _Nonnull error) {
+    [self processDisplayReceiptForContent:request.content completionHandler:^(UNNotificationContent * _Nonnull result, NSError * _Nonnull error) {
         if (error) {
             NSLog(@"Batch - An error occurred while processing display receipts: %@", error);
         }

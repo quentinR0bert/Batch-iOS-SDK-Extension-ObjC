@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 Batch Extension Display receipt helper.
 You should instanciate this once per UNNotificationServiceExtension and use the same instance for everything, as some methods might need context.
 */
+NS_SWIFT_NAME(DisplayReceiptHelper)
 @interface BAEDisplayReceiptHelper : NSObject
 
 /**
@@ -26,7 +27,7 @@ This operation can finish after serviceExtensionTimeWillExpire, so be sure to ha
 - Parameter content: Notification content
 - Parameter completionHandler: Completion block
 */
-- (void)processDisplayReceipt:(UNNotificationContent*)content completionHandler:(void (^)(UNNotificationContent* _Nullable result, NSError* _Nullable error))completionHandler;
+- (void)processDisplayReceiptForContent:(UNNotificationContent*)content completionHandler:(void (^)(UNNotificationContent* _Nullable result, NSError* _Nullable error))completionHandler NS_SWIFT_NAME(processDisplayReceipt(forContent:completionHandler:));
 
 /**
  Cache and send display receipts
@@ -35,7 +36,7 @@ This operation can finish after serviceExtensionTimeWillExpire, so be sure to ha
  
  - Parameter content: Notification content
  */
-- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request API_AVAILABLE(ios(10));
+- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request API_AVAILABLE(ios(10)) NS_SWIFT_NAME(didReceive(_:));
 
 /**
 Call this to notify Batch that the same method of the standard iOS delegate has been called

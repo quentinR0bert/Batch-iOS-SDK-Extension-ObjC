@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  Batch Extension Rich Notifications helper.
  You should instanciate this once per UNNotificationServiceExtension and use the same instance for everything, as some methods might need context.
  */
+NS_SWIFT_NAME(RichNotificationHelper)
 @interface BAERichNotificationHelper : NSObject
 
 /**
@@ -35,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param content           Notification content
  @param completionHandler Completion block
  */
-- (void)appendRichDataToContent:(UNNotificationContent*)content completionHandler:(void (^)(UNNotificationContent* _Nullable result, NSError* _Nullable error))completionHandler;
+- (void)appendRichDataToContent:(UNNotificationContent*)content completionHandler:(void (^)(UNNotificationContent* _Nullable result, NSError* _Nullable error))completionHandler NS_SWIFT_NAME(appendRichData(toContent:completionHandler:));
 
 
 /**
@@ -45,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request        Notification request
  @param contentHandler Callback block
  */
-- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler;
+- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *contentToDeliver))contentHandler NS_SWIFT_NAME(didReceive(_:withContentHandler:));
 
 
 /**
