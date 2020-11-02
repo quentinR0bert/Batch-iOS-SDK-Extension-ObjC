@@ -9,10 +9,12 @@
 
 /// Read the next messagepack object
 /// This also nils the error pointer before continuing, as most methods can't rely on a non-nil output to check if an error occurred.
-#define MP_READ_OBJECT() \
+#define MP_READ_OBJECT() MP_READ_OBJECT_OR_RETURN(nil)
+
+#define MP_READ_OBJECT_OR_RETURN(retVal) \
 if (error != nil) { *error = nil; }\
 bat_cmp_object_t msgpackObj;\
-if (![self readObject:&msgpackObj error:error]) { return nil; }
+if (![self readObject:&msgpackObj error:error]) { return retVal; }
 
 #define MP_ENFORCE_TYPE(_typeName, _typeInt) \
 if (allowNil && msgpackObj.type == BAT_CMP_TYPE_NIL) { \
@@ -105,7 +107,7 @@ static size_t mp_writer_bridge(bat_cmp_ctx_t *ctx, const void *data, size_t coun
 
 - (BOOL)readNilWithError:(NSError **)error
 {
-    MP_READ_OBJECT()
+    MP_READ_OBJECT_OR_RETURN(false)
     return [self readNil:msgpackObj error:error];
 }
 

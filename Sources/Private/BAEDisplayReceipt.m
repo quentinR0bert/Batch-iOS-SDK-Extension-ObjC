@@ -39,7 +39,7 @@
             if (error != nil) {
                 *error = writerError;
             }
-            return nil;
+            return false;
         }
     } else {
         [writer writeNil];
@@ -51,7 +51,7 @@
             if (error != nil) {
                 *error = writerError;
             }
-            return nil;
+            return false;
         }
     } else {
         [writer writeNil];
